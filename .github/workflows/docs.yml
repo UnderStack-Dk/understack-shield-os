@@ -1,0 +1,30 @@
+name: Documentation checks
+
+on:
+  pull_request:
+    paths:
+      - '**.md'
+      - '.github/**'
+  push:
+    branches: [main, develop]
+    paths:
+      - '**.md'
+      - '.github/**'
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Markdown files exist
+        run: |
+          test -f README.md
+          test -f CONTRIBUTING.md
+          test -f SECURITY.md
+      - name: Check internal Markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'

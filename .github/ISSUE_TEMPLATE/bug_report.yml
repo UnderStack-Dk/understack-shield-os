@@ -1,0 +1,10 @@
+name: Documentation or configuration issue
+description: Report a problem in repository documentation or configuration.
+title: "[Docs]: "
+labels: ["type: documentation", "status: triage"]
+body:
+  - type: textarea
+    attributes: {label: What is incorrect or unclear?, description: "Include links or paths."}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Suggested correction}

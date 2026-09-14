@@ -1,0 +1,22 @@
+name: Design proposal
+description: Propose a future product, architecture, privacy, or security direction.
+title: "[Proposal]: "
+labels: ["type: proposal", "status: triage"]
+body:
+  - type: textarea
+    attributes: {label: Problem and context}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Proposal}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Security and privacy considerations}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: Alternatives and trade-offs}
+*** Add File: work/understack-shield-os/.github/ISSUE_TEMPLATE/config.yml
+blank_issues_enabled: false
+contact_links:
+  - name: Security reports
+    url: ../../security/advisories/new
+    about: Report vulnerabilities privately; do not create a public issue.
