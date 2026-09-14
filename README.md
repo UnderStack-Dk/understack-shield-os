@@ -1,51 +1,89 @@
 # UnderStack Shield OS
 
-> A privacy-first, Linux-based security operating-system concept. **Pre-development repository:** it intentionally contains no product code.
+> **The private-by-default desktop.** A Linux-based security operating-system concept where protection is designed into the platform—not bolted on afterwards.
 
-UnderStack Shield OS is a future desktop operating-system initiative for people who want local control, clear security boundaries, and security that can explain its decisions. Its design direction is a hardened, immutable/atomic Linux base with privacy and user agency as defaults.
+![Project status: Pre-development](https://img.shields.io/badge/status-pre--development-5B5BD6?style=flat-square)
+![Privacy: Local-first](https://img.shields.io/badge/privacy-local--first-0E8A6A?style=flat-square)
+![Telemetry: No mandatory telemetry](https://img.shields.io/badge/telemetry-no%20mandatory%20telemetry-24292F?style=flat-square)
 
-## Status
+**UnderStack Shield OS** is a future desktop operating-system initiative for people who expect local control, visible trust boundaries, and security that can explain itself. This is a documentation-first repository: it contains the product foundation, not a runnable system or product code.
 
-This repository is the project foundation: product intent, decision records, security and privacy models, and collaboration workflow. It is not a runnable system and does not make implementation commitments.
+## The operating idea
 
-## Product direction
+```mermaid
+flowchart LR
+  U["You"] --> UX["UnderStack experience"]
+  UX --> C["Shield Core"]
+  C --> G["Guards & policy"]
+  G --> A["Apps"]
+  G --> N["Network"]
+  G --> D["Devices"]
+  G --> AI["Agents & AI"]
+  C --> F["Forensic timeline"]
+  C --> B["Immutable Linux base"]
+```
 
-- Local-first operation; no mandatory telemetry.
-- Atomic, recoverable system base and verified boot path.
-- Full-disk encryption, boot integrity, and least privilege.
-- Shield Core coordinating app, device, network, and AI-facing protections.
-- App sandboxing, Security Spaces, Lockdown, and an explainable forensic timeline.
-- Defense-in-depth using Linux facilities such as eBPF, LSM and SELinux where appropriate after technical validation.
-- Local AI / Pocket integration only under explicit, revocable user control; an Agent Firewall and prompt-injection defenses are core design concerns.
+### What it is designed to stand for
 
-## Documentation map
+| Private by default | Secure by design | Clear to the person using it |
+| --- | --- | --- |
+| Local-first processing and no mandatory telemetry. | Atomic base, encryption, boot integrity, isolation and least privilege. | Explainable decisions, Security Spaces, Lockdown and an evidence-oriented timeline. |
 
-| Area | Starting point |
+## Project compass
+
+```mermaid
+mindmap
+  root((Shield OS))
+    Privacy
+      Local-first
+      Explicit consent
+      No mandatory telemetry
+    Protection
+      App sandboxing
+      Network & device guards
+      Boot integrity
+    Intelligence
+      Local AI
+      Agent Firewall
+      Prompt-injection defense
+    Resilience
+      Atomic recovery
+      Security Spaces
+      Lockdown
+```
+
+## Explore the project
+
+| Start here | Go deeper |
 | --- | --- |
-| Vision and scope | [docs/vision.md](docs/vision.md) |
-| Architecture | [docs/architecture/overview.md](docs/architecture/overview.md) |
-| Threat model | [docs/security/threat-model.md](docs/security/threat-model.md) |
-| Privacy model | [docs/privacy/privacy-model.md](docs/privacy/privacy-model.md) |
-| Security principles | [docs/security/principles.md](docs/security/principles.md) |
-| Contribution workflow | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Roadmap | [docs/roadmap/roadmap.md](docs/roadmap/roadmap.md) |
-| Architectural decisions | [docs/architecture/adr/README.md](docs/architecture/adr/README.md) |
+| [Vision and scope](docs/vision.md) | [Architecture overview](docs/architecture/overview.md) |
+| [Threat model](docs/security/threat-model.md) | [Privacy model](docs/privacy/privacy-model.md) |
+| [Security principles](docs/security/principles.md) | [Roadmap](docs/roadmap/roadmap.md) |
+| [How we work](docs/workflows/operating-model.md) | [Decision records](docs/architecture/adr/README.md) |
 
-## Repository workflow
+## How we build trust before we build software
 
-`main` is the protected source of truth. `develop` is the integration branch once implementation begins. Work proceeds in short-lived branches and is merged through reviewed pull requests. See [docs/workflows/development-workflow.md](docs/workflows/development-workflow.md).
+Every meaningful proposal follows a lightweight, evidence-led path:
 
-## Current boundaries
+```mermaid
+flowchart LR
+  I["Issue: problem"] --> D["Discovery"]
+  D --> R["Risk & privacy review"]
+  R --> A["ADR / owner decision"]
+  A --> P["Small, reviewable PR"]
+  P --> V["Validation"]
+  V --> L["Learn & update"]
+```
 
-This repository must not contain application, kernel, agent, installer, CI build, telemetry, or deployment code until those proposals are reviewed. Documentation and configuration checks are allowed.
+Read the [operating model](docs/workflows/operating-model.md), [quality gates](docs/workflows/quality-gates.md), and [contribution guide](CONTRIBUTING.md) before proposing a change.
 
-## Governance
+## Current boundary
 
-The repository owner retains final control over `main`. Maintainers and ownership mappings will be added only after real identities and responsibilities are confirmed.
+This repository intentionally contains no application, kernel, installer, agent, telemetry, deployment, or build code. Those decisions belong to a later, reviewed discovery phase. The owner retains final control of `main`.
 
 ## Security reporting
 
-Please do not disclose potential vulnerabilities in public issues. Follow [SECURITY.md](SECURITY.md).
+Potential vulnerabilities must stay out of public issues. Follow [SECURITY.md](SECURITY.md).
 
 ## License
 
